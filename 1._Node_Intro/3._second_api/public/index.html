@@ -22,7 +22,7 @@
             let aboutmeIsClicked = true;
             $("#aboutme").click((event) => {
                 if (aboutmeIsClicked) {
-                    $.get("/aboutme", (data) => {
+                    $.get("/aboutme", (data) => { 
                         $("#pagewrapper").append("<div>First name: " + data.firstName + "</div>")
                         $("#pagewrapper").append("<div>Last name: " + data.lastName + "</div>")
                     });
@@ -32,6 +32,13 @@
                 aboutmeIsClicked = !aboutmeIsClicked;
             });
         });
+
+        // create a form that posts to a new request handler on the server
+        // this request handler should be called POST /aboutme
+        // the /aboutme should receive a body with a new firstName and lastName
+
+        // bonus: once posted to /aboutme it should change the now global aboutme variable 
+        // and calling GET /aboutme should allow for a different result
 
     </script>
 </body>
