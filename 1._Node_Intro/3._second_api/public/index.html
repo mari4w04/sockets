@@ -7,12 +7,32 @@
 </head>
 <body>
 
+    <button id="aboutme">About Me</button>
+
+    <div id="pagewrapper"></div>
+
     <script>
         // create a link or a button once clicked 
         // call a GET request with AJAX
         // that returns the about me info from the server
         // then take the response and display it on the page 
-    
+        
+        $(document).ready(() => {
+            // add event handler for about me button
+            let aboutmeIsClicked = true;
+            $("#aboutme").click((event) => {
+                if (aboutmeIsClicked) {
+                    $.get("/aboutme", (data) => {
+                        $("#pagewrapper").append("<div>First name: " + data.firstName + "</div>")
+                        $("#pagewrapper").append("<div>Last name: " + data.lastName + "</div>")
+                    });
+                } else {
+                    $("#pagewrapper").empty();  
+                }
+                aboutmeIsClicked = !aboutmeIsClicked;
+            });
+        });
+
     </script>
 </body>
 </html>
