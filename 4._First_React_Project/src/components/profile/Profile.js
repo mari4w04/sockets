@@ -5,6 +5,7 @@ class Profile extends React.Component {
         console.log("111111 ", this.props.hobbies);
         return (
             <div>
+                <p>     </p>
                 <img src={this.props.img} />
                 <div>Name: {this.props.name}</div>
                 <div>Age: {this.props.age} </div>
