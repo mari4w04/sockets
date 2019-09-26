@@ -2,6 +2,8 @@
 const express = require("express");
 const app = express();
 
+const request = require("request"); 
+
 const bodyParser = require("body-parser");
 
 // parse application/x-www-form-urlencoded
@@ -38,6 +40,15 @@ app.get("/age/:myAge/:height", (req, res) => {
 app.post("/myfavoriteanimal", (req, res) => {
     res.send("Your favorite animal is: " + req.body.favoriteAnimal);
 }); 
+
+app.get("/server-side-request", (req, res) => {
+    request('http://www.google.com', function (error, response, body) {
+        console.log('error:', error); // Print the error if one occurred
+        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+        // console.log('body:', body); // Print the HTML for the Google homepage.
+        res.send(body);
+      });
+});
 
 const server = app.listen(3000, (error) => {
     if (error) {
