@@ -45,16 +45,22 @@ function myPromise() {
     return new Promise(function(resolve, reject) {
         setTimeout(function() {
             resolve("I resolved after 5 seconds...");
-        }, 5000)
+        }, 5000);
     });
 }
 
-function myAsynchronousFunction() {
-    myPromise().then(message => {
-        console.log(message);
-    })
+// async await
+async function myAsynchronousFunction() {
+    // myPromise().then(message => {
+    //     console.log(message);
+    // })
+    try {
+        const message = await myPromise();
+        console.log("This is the message: ", message);
+    } catch(error) {
+        throw(error);
+    }
 }
 
 myAsynchronousFunction();
-
 
