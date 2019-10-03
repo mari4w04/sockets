@@ -3,12 +3,22 @@ import './App.css';
 import ProfilePage from './components/profile/ProfilePage'; 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ButtonPage from './components/button/ButtonPage';
+import ThemePage from './components/theme/ThemePage';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      backgroundColor: "blue"
+    };
+  }
+
   render() {
+    const { backgroundColor } = this.state;
+
     return (
       <Router>
-        <div>
+        <div style={{backgroundColor: backgroundColor}}>
           <nav>
             <ul>
               <li>
@@ -19,6 +29,9 @@ class App extends React.Component {
               </li>
               <li>
                 <Link to="/buttons">Buttons</Link>
+              </li>
+              <li>
+                <Link to="/theme">Theme</Link>
               </li>
             </ul>
           </nav>
@@ -31,6 +44,7 @@ class App extends React.Component {
             </Route>
             <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/buttons" component={ButtonPage} />
+            <Route exact path="/theme" component={ThemePage} />
           </Switch>
         </div>
       </Router>
