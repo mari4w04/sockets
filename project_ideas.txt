@@ -21,6 +21,11 @@ video site
 music / spotify
 
 
+technologies
+-------------
+animation
+
+
 not doing
 ----------
 

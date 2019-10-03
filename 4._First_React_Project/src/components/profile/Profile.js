@@ -2,16 +2,17 @@ import React from 'react';
 
 class Profile extends React.Component {
     render() {
-        console.log("111111 ", this.props.hobbies);
+        const { img, name, age, hobbies } = this.props.profileInfo;
+        
         return (
             <div>
                 <p>     </p>
-                <img src={this.props.img} />
-                <div>Name: {this.props.name}</div>
-                <div>Age: {this.props.age} </div>
+                <img src={img} />
+                <div>Name: {name}</div>
+                <div>Age: {age} </div>
                 <div>Hobbies: </div>
                 {
-                    this.props.hobbies.map((element) => {
+                    hobbies.map((element) => {
                         return (<p>{element}</p>);
                     })
                 }
