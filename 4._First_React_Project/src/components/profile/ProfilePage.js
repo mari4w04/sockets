@@ -1,4 +1,5 @@
 import React from "react";
+import Profile from './Profile';
 
 export default class ProfilePage extends React.Component {
     render() {
