@@ -24,8 +24,8 @@ export default class ProfilePage extends React.Component {
         return (
             <div className="App App-header">
             {
-            profiles.map(profile => {
-                return <Profile profileInfo={profile} />
+            profiles.map((profile, index) => {
+                return <Profile key={"profile" + index} profileInfo={profile} />
             })
             }
             </div>

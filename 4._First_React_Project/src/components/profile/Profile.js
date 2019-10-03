@@ -7,13 +7,13 @@ class Profile extends React.Component {
         return (
             <div>
                 <p>     </p>
-                <img src={img} />
+                <img src={img} alt="Profile" />
                 <div>Name: {name}</div>
                 <div>Age: {age} </div>
                 <div>Hobbies: </div>
                 {
-                    hobbies.map((element) => {
-                        return (<p>{element}</p>);
+                    hobbies.map((element, index) => {
+                        return (<p key={"hobby" + index} >{element}</p>);
                     })
                 }
             </div>

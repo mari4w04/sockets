@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ProfilePage from './components/profile/ProfilePage'; 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import ButtonPage from './components/button/ButtonPage';
 
 class App extends React.Component {
   render() {
@@ -17,20 +17,20 @@ class App extends React.Component {
               <li>
                 <Link to="/profile">Profile</Link>
               </li>
+              <li>
+                <Link to="/buttons">Buttons</Link>
+              </li>
             </ul>
           </nav>
 
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
           <Switch>
-
-            <Route path="/">
+            <Route exact path="/">
               <div>This is the home page</div>
             </Route>
-          <Route path="/profile" >
-              {/* <ProfilePage /> */}
-              <div>test</div>
-            </Route>
+            <Route exact path="/profile" component={ProfilePage} />
+            <Route exact path="/buttons" component={ButtonPage} />
           </Switch>
         </div>
       </Router>
