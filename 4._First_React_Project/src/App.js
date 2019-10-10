@@ -9,8 +9,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      backgroundColor: "blue"
+      backgroundColor: "red"
     };
+  }
+
+  handleColorChange = (color) => {
+    this.setState({backgroundColor: color});
   }
 
   render() {
@@ -44,7 +48,9 @@ class App extends React.Component {
             </Route>
             <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/buttons" component={ButtonPage} />
-            <Route exact path="/theme" component={ThemePage} />
+            <Route exact path="/theme" >
+              <ThemePage onColorChange={this.handleColorChange} />
+            </Route>
           </Switch>
         </div>
       </Router>
