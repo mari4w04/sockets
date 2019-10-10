@@ -22,7 +22,7 @@ class App extends React.Component {
 
     return (
       <Router>
-        <div style={{backgroundColor: backgroundColor}}>
+        <div className="entire-app" style={{backgroundColor: backgroundColor}}>
           <nav>
             <ul>
               <li>
@@ -48,9 +48,8 @@ class App extends React.Component {
             </Route>
             <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/buttons" component={ButtonPage} />
-            <Route exact path="/theme" >
-              <ThemePage onColorChange={this.handleColorChange} />
-            </Route>
+            <Route exact path="/theme" render={(props) => <ThemePage {...props} onColorChange={this.handleColorChange}/>}  />
+      
           </Switch>
         </div>
       </Router>

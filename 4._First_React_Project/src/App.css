@@ -20,6 +20,11 @@
   color: #09d3ac;
 }
 
+.entire-app {
+  height: 100vh;
+  min-height: 100%;
+}
+
 .btn {
   width: 20%;
 }
