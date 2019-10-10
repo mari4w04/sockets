@@ -9,8 +9,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      backgroundColor: "red"
+      backgroundColor: ""
     };
+  }
+
+  componentDidMount() {
+    // guaranteed that this gets called when app is rendered for the first time  
   }
 
   handleColorChange = (color) => {
@@ -48,7 +52,7 @@ class App extends React.Component {
             </Route>
             <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/buttons" component={ButtonPage} />
-            <Route exact path="/theme" render={(props) => <ThemePage {...props} onColorChange={this.handleColorChange}/>}  />
+            <Route exact path="/theme" component={(props) => <ThemePage {...props} onColorChange={this.handleColorChange}/>}  />
       
           </Switch>
         </div>
